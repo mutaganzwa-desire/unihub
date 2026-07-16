@@ -55,14 +55,25 @@ misconfigured backend.
 
 ```
 lib/
-  core/            # cross-cutting: theme, router, services, widgets, utils
-  features/
-    onboarding/    auth/       profile/     internships/
-    applications/  bookmarks/  chat/        notifications/
-    dashboard/     analytics/  admin/
-  app.dart         bootstrap.dart   main.dart
-firestore.rules    storage.rules    firestore.indexes.json
-test/
+
+├── core/
+├── features/
+│   ├── auth/
+│   ├── onboarding/
+│   ├── profiles/
+│   ├── internships/
+│   ├── applications/
+│   ├── chat/
+│   ├── notifications/
+│   ├── analytics/
+│   └── admin/
+│
+├── shared/
+├── services/
+├── repositories/
+├── widgets/
+├── theme/
+└── main.dart
 ```
 
 Each feature follows the same internal split:
