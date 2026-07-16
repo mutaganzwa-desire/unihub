@@ -1,0 +1,25 @@
+rules_version = '2';
+
+// Firebase Storage rules. Users own their folder; chat attachments are
+// readable by conversation participants (enforced practically via the
+// unguessable conversation id + auth).
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isSignedIn() { return request.auth != null; }
+    function isOwner(uid) { return isSignedIn() && request.auth.uid == uid; }
+    function underSize(mb) { return request.resource.size < mb * 1024 * 1024; }
+
+    match /users/{uid}/{allPaths=**} {
+      allow read: if isSignedIn();
+      allow write: if isOwner(uid) && underSize(5);
+    }
+    match /startups/{uid}/{allPaths=**} {
+      allow read: if isSignedIn();
+      allow write: if isOwner(uid) && underSize(5);
+    }
+    match /chats/{conversationId}/{allPaths=**} {
+      allow read: if isSignedIn();
+      allow write: if isSignedIn() && underSize(10);
+    }
+  }
+}

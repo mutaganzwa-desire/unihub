@@ -1,0 +1,33 @@
+{
+  "functions": {
+    "source": "functions",
+    "runtime": "nodejs18"
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "unihub-db7fa",
+          "appId": "1:603631209902:android:32156bd3e5062186e30c3f",
+          "fileOutput": "android/app/google-services.json"
+        }
+      }
+    },
+    "dart": {
+      "lib/firebase_options.dart": {
+        "projectId": "unihub-db7fa",
+        "configurations": {
+          "android": "1:603631209902:android:32156bd3e5062186e30c3f",
+          "ios": "1:603631209902:ios:d4be4a6625704847e30c3f",
+          "macos": "1:603631209902:ios:d4be4a6625704847e30c3f",
+          "web": "1:603631209902:web:28ea6fe384feba20e30c3f",
+          "windows": "1:603631209902:web:795478c0c8dcb108e30c3f"
+        }
+      }
+    }
+  }
+}
